@@ -32,8 +32,8 @@ from langchain.schema import (
     SystemMessage
 )
 
-openai_api_key = os.getenv("OPENAI_API_KEY", "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")
-os.environ['OPENAI_API_KEY'] = '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'
+openai_api_key = os.getenv("OPENAI_API_KEY", "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")
+os.environ['OPENAI_API_KEY'] = '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'
 nltk.download('averaged_perceptron_tagger')
 
 
