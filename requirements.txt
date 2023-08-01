@@ -1,4 +1,3 @@
-dotenv
 langchain
 tiktoken
 pinecone-client
@@ -7,7 +6,7 @@ openai
 unstructured
 python-magic
 chromadb==0.3.26
-faiss-cpu
+faiss-gpu
 pydantic==1.10.8
 typing-inspect==0.8.0
 streamlit
