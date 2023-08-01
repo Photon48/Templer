@@ -1,3 +1,4 @@
+dotenv
 langchain
 tiktoken
 pinecone-client

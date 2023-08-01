@@ -1,4 +1,5 @@
 import streamlit as st
+from dotenv import load_dotenv
 from langchain.document_loaders import DirectoryLoader
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import FAISS
@@ -31,9 +32,10 @@ from langchain.schema import (
     HumanMessage,
     SystemMessage
 )
+API_KEY = os.getenv('PROJECT_API_KEY')
 
-openai_api_key = os.getenv("OPENAI_API_KEY", "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")
-os.environ['OPENAI_API_KEY'] = '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'
+openai_api_key = os.getenv("OPENAI_API_KEY", API_KEY)
+os.environ['OPENAI_API_KEY'] = API_KEY
 nltk.download('averaged_perceptron_tagger')
 
 
