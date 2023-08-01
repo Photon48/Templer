@@ -7,7 +7,7 @@ openai
 unstructured
 python-magic
 chromadb==0.3.26
-faiss-gpu
+faiss-cpu
 pydantic==1.10.8
 typing-inspect==0.8.0
 streamlit
