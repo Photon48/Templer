@@ -34,7 +34,7 @@ from langchain.schema import (
 )
 
 
-openai_api_key = st.secrets["OPENAI_API_KEY"]
+openai_api_key = "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"
 nltk.download('averaged_perceptron_tagger')
 
 
@@ -136,24 +136,23 @@ with st.form("file_upload_form"):
                 # Initialize a dictionary to store the blocks by type
                 blocks_by_type = {'Title': [], 'Question': [], 'Text': []}
                 # Process each block individually
+                # Initialize an empty list to store the processed blocks
+                processed_blocks = []
+                # Process each block individually
                 for block in blocks:
-                    # Run the question through the qa model and get the answer
-                    # if the block type is 'Question'
+                    # If the block is a question, run it through the QA model and get the answer
                     if block['type'] == 'Question':
                         query = str(block['content'])
                         answer = qa.run(query)
-                        # Store the answer in the block
-                        block['content'] = answer
-                    # Append the content of the block to the corresponding list in the dictionary
-                    blocks_by_type[block['type']].append(block['content'])
+                        processed_blocks.append({'type': 'Answer', 'content': answer})
+                    else:
+                        processed_blocks.append(block)
 
-                # Display the blocks by type
-                for block_type, block_contents in blocks_by_type.items():
-                    # Join all the contents of the same type together into a single string
-                    joined_content = ' '.join(block_contents)
-                    if block_type == 'Title':
-                        st.header(joined_content)
-                    elif block_type == 'Question':
-                        st.write(joined_content)  # Now this will display all the answers together
-                    else:  # block_type == 'Text'
-                        st.write(joined_content)     
+                # Display the processed blocks
+                for block in processed_blocks:
+                    if block['type'] == 'Title':
+                        st.header(block['content'])
+                    elif block['type'] == 'Answer':
+                        st.write(block['content'])  # This will display the answer
+                    else:  # block['type'] == 'Text'
+                        st.write(block['content']) 
