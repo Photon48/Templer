@@ -32,7 +32,6 @@ from langchain.schema import (
     HumanMessage,
     SystemMessage
 )
-API_KEY = os.getenv('PROJECT_API_KEY')
 
 openai_api_key = os.getenv('OPENAI_API_KEY')
 nltk.download('averaged_perceptron_tagger')
