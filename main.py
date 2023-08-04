@@ -33,7 +33,8 @@ from langchain.schema import (
     SystemMessage
 )
 
-openai_api_key = os.getenv('OPENAI_API_KEY')
+
+openai_api_key = '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'
 nltk.download('averaged_perceptron_tagger')
 
 
