@@ -34,7 +34,7 @@ from langchain.schema import (
 )
 
 
-openai_api_key = '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'
+openai_api_key = st.secrets["OPENAI_API_KEY"]
 nltk.download('averaged_perceptron_tagger')
 
 
