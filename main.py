@@ -33,8 +33,8 @@ from langchain.schema import (
     SystemMessage
 )
 
+openai_api_key = st.secrets["OPENAI_API_KEY"]
 
-openai_api_key = "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"
 nltk.download('averaged_perceptron_tagger')
 
 
